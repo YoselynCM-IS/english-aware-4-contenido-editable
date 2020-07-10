@@ -18,7 +18,7 @@
       <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
         <!--Empezar a agregar contenido-->
         
-		<span style="position: absolute; top: 531px; left: 68px">
+		<!--span style="position: absolute; top: 531px; left: 68px">
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p53res1"></textarea><br>
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p53res2"></textarea><br>
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p53res3"></textarea><br>
@@ -30,7 +30,7 @@
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p53res9"></textarea><br>
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p53res10"></textarea><br>
 		<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p53res11"></textarea>
-		</span>
+		</span-->
       
       <span style="position: absolute; top: 214px; left: 465px">
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p53res12"></textarea><br>
@@ -85,6 +85,26 @@
       <span style="position: absolute; top: 951px; left: 781px">
 			<input type="checkbox" id="ea4_p53res42">
 		</span>
+      
+      <div id="ea4_p53res43-zone" style="position: absolute; top: 530px; left: 69px; width: 342px; height: 235px;">
+			<img id="ea4_p53res43" src="bgimg/01.jpg" height="235" width="342"> 
+		</div>
+      <script type="text/javascript">
+			var ea4_p53res43 = document.getElementById('ea4_p53res43');
+			if (localStorage.getItem("Img_ea4_p53res43") === null) {
+				var dataImage = "bgimg/01.jpg"
+			}
+			else {
+				var dataImage = localStorage.getItem('Img_ea4_p53res43');
+			}
+			ea4_p53res43.src = dataImage;
+			var previewZone = document.getElementById('ea4_p53res43-zone');
+			previewZone.appendChild(ea4_p53res43);
+		</script>
+
+		<div id="divFileUpload" style="position: absolute; top: 759px; left: 67px">
+			<input class="btn btn-primary" id="file-upload" type="file" accept="image/*" />
+		</div>
        
        
        
@@ -111,6 +131,32 @@
             
     </div>       
 </body>
+<script>
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+     
+            reader.onload = function (e) {
+                var ea4_p53res43 = document.getElementById('ea4_p53res43');
+                //e.target.result contents the base64 data from the image uploaded
+                ea4_p53res43.src = e.target.result;
+                console.log(e.target.result);
+     
+                var previewZone = document.getElementById('ea4_p53res43-zone');
+                previewZone.appendChild(ea4_p53res43);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+     
+    var fileUpload = document.getElementById('file-upload');
+    fileUpload.onchange = function (e) {
+        //document.getElementById('file-preview-zone').innerHTML = "";
+        readFile(e.srcElement);
+    }
+     
+</script>
 <script type="text/javascript">
 	//Carga datos del registro
     document.getElementById('ea4_regNA').value = localStorage.getItem('ea4_regNA');
@@ -119,7 +165,7 @@
     document.getElementById('ea4_regND').value = localStorage.getItem('ea4_regND');
     document.getElementById('ea4_regCD').value = localStorage.getItem('ea4_regCD');
 
-	 document.getElementById('ea4_p53res1').value = localStorage.getItem('ea4_p53res1');
+	 /*document.getElementById('ea4_p53res1').value = localStorage.getItem('ea4_p53res1');
     document.getElementById('ea4_p53res2').value = localStorage.getItem('ea4_p53res2');
     document.getElementById('ea4_p53res3').value = localStorage.getItem('ea4_p53res3');
     document.getElementById('ea4_p53res4').value = localStorage.getItem('ea4_p53res4');
@@ -129,7 +175,7 @@
     document.getElementById('ea4_p53res8').value = localStorage.getItem('ea4_p53res8');
     document.getElementById('ea4_p53res9').value = localStorage.getItem('ea4_p53res9');
     document.getElementById('ea4_p53res10').value = localStorage.getItem('ea4_p53res10');
-    document.getElementById('ea4_p53res11').value = localStorage.getItem('ea4_p53res11');
+    document.getElementById('ea4_p53res11').value = localStorage.getItem('ea4_p53res11');*/
     document.getElementById('ea4_p53res12').value = localStorage.getItem('ea4_p53res12');
     document.getElementById('ea4_p53res13').value = localStorage.getItem('ea4_p53res13');
     document.getElementById('ea4_p53res14').value = localStorage.getItem('ea4_p53res14');
@@ -210,10 +256,15 @@
     if(document.getElementById('ea4_p53res42').value == "1")
         document.getElementById("ea4_p53res42").checked = true; 
     // ** FIN ACTIVACION CHECKBOK ** //
+	
+	
     
 
     function save_data(){
-        var ea4_p53res1 = document.getElementById('ea4_p53res1').value;
+		//local storage
+        bannerImage = document.getElementById('ea4_p53res43').src;
+        localStorage.setItem("Img_ea4_p53res43", bannerImage);
+        /*var ea4_p53res1 = document.getElementById('ea4_p53res1').value;
         localStorage.setItem('ea4_p53res1', ea4_p53res1);
         var ea4_p53res2 = document.getElementById('ea4_p53res2').value;
         localStorage.setItem('ea4_p53res2', ea4_p53res2);
@@ -234,7 +285,7 @@
         var ea4_p53res10 = document.getElementById('ea4_p53res10').value;
         localStorage.setItem('ea4_p53res10', ea4_p53res10);
         var ea4_p53res11 = document.getElementById('ea4_p53res11').value;
-        localStorage.setItem('ea4_p53res11', ea4_p53res11);
+        localStorage.setItem('ea4_p53res11', ea4_p53res11);*/
         var ea4_p53res12 = document.getElementById('ea4_p53res12').value;
         localStorage.setItem('ea4_p53res12', ea4_p53res12);
         var ea4_p53res13 = document.getElementById('ea4_p53res13').value;

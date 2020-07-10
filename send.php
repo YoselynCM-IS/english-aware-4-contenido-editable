@@ -20,21 +20,7 @@ $ea4_regCA = $_POST["ea4_regCA"];
 $ea4_regND = $_POST["ea4_regND"];
 $ea4_regCD = $_POST["ea4_regCD"];
 $ea4_regNA = $_POST["ea4_regNA"];
-/*
-echo $imagen;
-echo "<br>";
-echo $ea4_regGP;
-echo "<br>";
-echo $ea4_regCA;
-echo "<br>";
-echo $ea4_regND;
-echo "<br>";
-echo $ea4_regCD;
-echo "<br>";
-echo $ea4_regNA;
-echo "<br>";
-//die("fin");
-**/
+
 $imagen = preg_replace('#^data:image/[^;]+;base64,#', '', $imagen); 
 $mensaje = '<b>English Aware 4</b><br><b>Student name: </b>'.$ea4_regNA.'<br><b>Group: </b> '.$ea4_regGP.'<br><b>Teacher: </b>'.$ea4_regND;
 
@@ -49,7 +35,6 @@ $decode = base64_decode($imagen);
 $mail->addStringAttachment($decode, "Activity.png", "base64", "image/png");
 $mensaje .= '<br><img src="https://majesticeducacion.com.mx/nuevo/wp-content/uploads/2018/08/logo-header-majesticeducacion.png">';
  
-//Configuracion servidor mail
 
 $mail->From = "ebook@majesticeducationdigital.com"; //remitente
 $mail->FromName = "Majestic Education";//nombre remitente
