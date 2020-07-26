@@ -38,6 +38,26 @@
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p38res10"></textarea>
 		</span>
 		
+		<div id="ea4_p38res11-zone" style="position: absolute; top: 489px; left: 61px; width: 357px; height: 183px;">
+			<img id="ea4_p38res11" src="bgimg/01.jpg" height="181" width="357"> 
+		</div>
+	  <script type="text/javascript">
+            var ea4_p38res11 = document.getElementById('ea4_p38res11');
+            if (localStorage.getItem("Img_ea4_p38res11") === null) {
+                var dataImage = "bgimg/01.jpg"
+            }
+            else {
+                var dataImage = localStorage.getItem('Img_ea4_p38res11');
+            }
+            ea4_p38res11.src = dataImage;
+            var previewZone = document.getElementById('ea4_p38res11-zone');
+            previewZone.appendChild(ea4_p38res11);
+        </script>
+
+        <div id="divFileUpload" style="position: absolute; top: 427px; left: 52px">
+            <input class="btn btn-primary" id="file-upload" type="file" accept="image/*" />
+        </div>
+		
        
         <!--Fin del contenido-->
            <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
@@ -62,6 +82,32 @@
             
     </div>       
 </body>
+<script>
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+     
+            reader.onload = function (e) {
+                var ea4_p38res11 = document.getElementById('ea4_p38res11');
+                //e.target.result contents the base64 data from the image uploaded
+                ea4_p38res11.src = e.target.result;
+                console.log(e.target.result);
+     
+                var previewZone = document.getElementById('ea4_p38res11-zone');
+                previewZone.appendChild(ea4_p38res11);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+     
+    var fileUpload = document.getElementById('file-upload');
+    fileUpload.onchange = function (e) {
+        //document.getElementById('file-preview-zone').innerHTML = "";
+        readFile(e.srcElement);
+    }
+     
+</script>
 <script type="text/javascript">
 	//Carga datos del registro
     document.getElementById('ea4_regNA').value = localStorage.getItem('ea4_regNA');
@@ -83,6 +129,10 @@
     
 
     function save_data(){
+		//local storage
+        bannerImage = document.getElementById('ea4_p38res11').src;
+        localStorage.setItem("Img_ea4_p38res11", bannerImage);
+		
         var ea4_p38res1 = document.getElementById('ea4_p38res1').value;
         localStorage.setItem('ea4_p38res1', ea4_p38res1);
         var ea4_p38res2 = document.getElementById('ea4_p38res2').value;

@@ -17,9 +17,13 @@
     <div id="contenedor">
       <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
         <!--Empezar a agregar contenido-->
+        <span style="position: absolute; top: 325px; left: 107px">
+			<textarea rows = "1" cols = "8" maxlength = "8" id="ea4_p24res23"></textarea>
+		</span>
         <span style="position: absolute; top: 327px; left: 342px">
 			<textarea rows = "1" cols = "8" maxlength = "8" id="ea4_p24res1"></textarea>
 		</span>
+        
 	  <span style="position: absolute; top: 346px; left: 62px">
 	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea4_p24res2"></textarea>
 	  </span>
@@ -45,7 +49,7 @@
 	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea4_p24res9"></textarea>
 	  </span>
 	  <span style="position: absolute; top: 447px; left: 285px">
-	  <textarea rows = "1" cols = "15" maxlength = "15" id="ea4_p24res10"></textarea>
+	  <textarea rows = "1" cols = "16" maxlength = "16" id="ea4_p24res10"></textarea>
 	  </span>
 	  <span style="position: absolute; top: 487px; left: 133px">
 	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea4_p24res11"></textarea>
@@ -67,7 +71,7 @@
 	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea4_p24res16"></textarea>
 	  </span>
 	  <span style="position: absolute; top: 728px; left: 101px">
-	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea4_p24res17"></textarea>
+	  <textarea rows = "1" cols = "9" maxlength = "9" id="ea4_p24res17"></textarea>
 	  </span>
 	  <span style="position: absolute; top: 748px; left: 84px">
 	  <textarea rows = "1" cols = "4" maxlength = "4" id="ea4_p24res18"></textarea>
@@ -139,7 +143,7 @@
     document.getElementById('ea4_p24res20').value = localStorage.getItem('ea4_p24res20');
     document.getElementById('ea4_p24res21').value = localStorage.getItem('ea4_p24res21');
     document.getElementById('ea4_p24res22').value = localStorage.getItem('ea4_p24res22');
-    
+    document.getElementById('ea4_p24res23').value = localStorage.getItem('ea4_p24res23');
 
     function save_data(){
         var ea4_p24res1 = document.getElementById('ea4_p24res1').value;
@@ -186,6 +190,8 @@
         localStorage.setItem('ea4_p24res21', ea4_p24res21);
         var ea4_p24res22 = document.getElementById('ea4_p24res22').value;
         localStorage.setItem('ea4_p24res22', ea4_p24res22);
+		var ea4_p24res23 = document.getElementById('ea4_p24res23').value;
+        localStorage.setItem('ea4_p24res23', ea4_p24res23);
         
         alert("Saved correctly");
     }

@@ -17,20 +17,20 @@
     <div id="contenedor">
       <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
         <!--Empezar a agregar contenido-->
-        <span style="position: absolute; top: 416px; left: 83px">
-			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res1"></textarea>
+        <span style="position: absolute; top: 475px; left: 66px">
+			<textarea rows = "1" cols = "48" maxlength = "48" id="ea4_p48res1"></textarea>
 		</span>
-      <span style="position: absolute; top: 416px; left: 83px">
-	  <textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res2"></textarea>
+      <span style="position: absolute; top: 416px; left: 66px">
+	  <textarea rows = "1" cols = "48" maxlength = "48" id="ea4_p48res2"></textarea>
 	   </span>
-      <span style="position: absolute; top: 478px; left: 83px">
-	  <textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res3"></textarea>
+      <span style="position: absolute; top: 521px; left: 66px">
+	  <textarea rows = "1" cols = "48" maxlength = "48" id="ea4_p48res3"></textarea>
 	   </span>
-      <span style="position: absolute; top: 518px; left: 83px">
-	  <textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res4"></textarea>
+      <span style="position: absolute; top: 576px; left: 66px">
+	  <textarea rows = "1" cols = "48" maxlength = "48" id="ea4_p48res4"></textarea>
 	   </span>
-       <span style="position: absolute; top: 619px; left: 83px">
-			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res5"></textarea>
+       <span style="position: absolute; top: 619px; left: 66px">
+			<textarea rows = "1" cols = "48" maxlength = "48" id="ea4_p48res5"></textarea>
 		</span>
         <span style="position: absolute; top: 749px; left: 79px">
 			<textarea rows = "1" cols = "7" maxlength = "7" id="ea4_p48res6"></textarea>
@@ -56,6 +56,9 @@
 		</span>
       <span style="position: absolute; top: 95px; left: 477px">
 	  <textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res13"></textarea>
+		</span>
+     <span style="position: absolute; top: 156px; left: 477px">
+	  <textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res15"></textarea>
 		</span>
       <span style="position: absolute; top: 196px; left: 477px">
 			<textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p48res14"></textarea>
@@ -106,6 +109,7 @@
     document.getElementById('ea4_p48res12').value = localStorage.getItem('ea4_p48res12');
     document.getElementById('ea4_p48res13').value = localStorage.getItem('ea4_p48res13');
     document.getElementById('ea4_p48res14').value = localStorage.getItem('ea4_p48res14');
+	document.getElementById('ea4_p48res15').value = localStorage.getItem('ea4_p48res15');
     
 
     function save_data(){
@@ -137,6 +141,8 @@
         localStorage.setItem('ea4_p48res13', ea4_p48res13);
         var ea4_p48res14 = document.getElementById('ea4_p48res14').value;
         localStorage.setItem('ea4_p48res14', ea4_p48res14);
+		var ea4_p48res15 = document.getElementById('ea4_p48res15').value;
+        localStorage.setItem('ea4_p48res15', ea4_p48res15);
         
 
         alert("Saved correctly");

@@ -29,7 +29,7 @@
 	  <span style="position: absolute; top: 920px; left: 84px">
 	  <textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p10res4"></textarea>
 	  </span>
-	  <span style="position: absolute; top: 981px; left: 84px">
+	  <span style="position: absolute; top: 981px; left: 84px; font-size: 90%;">
 	  <textarea rows = "1" cols = "40" maxlength = "40" id="ea4_p10res5"></textarea>
 	  </span>
 		<span style="position: absolute; top: 1000px; left: 84px">
@@ -37,21 +37,41 @@
 		</span>
 		
       <span style="position: absolute; top: 828px; left: 577px">
-			<textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res7"></textarea>
+			<textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res7"></textarea>
 		</span>
       <span style="position: absolute; top: 856px; left: 577px">
-	  <textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res8"></textarea><br>
-	  <textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res9"></textarea>
+	  <textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res8"></textarea><br>
+	  <textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res9"></textarea>
 		</span>
       <span style="position: absolute; top: 907px; left: 577px">
-	  <textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res10"></textarea><br>
-	  <textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res11"></textarea>
+	  <textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res10"></textarea><br>
+	  <textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res11"></textarea>
 		</span>
       <span style="position: absolute; top: 962px; left: 577px">
-      		<textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res12"></textarea><br>
-      		<textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res13"></textarea><br>
-			<textarea rows = "1" cols = "25" maxlength = "25" id="ea4_p10res14"></textarea>
+      		<textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res12"></textarea><br>
+      		<textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res13"></textarea><br>
+	  <textarea rows = "1" cols = "27" maxlength = "27" id="ea4_p10res14"></textarea>
 		</span>
+      
+      <div id="ea4_p10res15-zone" style="position: absolute; top: 559px; left: 62px; width: 326px; height: 102px;">
+			<img id="ea4_p10res15" src="bgimg/01.jpg" height="101" width="326"> 
+		</div>
+      <script type="text/javascript">
+            var ea4_p10res15 = document.getElementById('ea4_p10res15');
+            if (localStorage.getItem("Img_ea4_p10res15") === null) {
+                var dataImage = "bgimg/01.jpg"
+            }
+            else {
+                var dataImage = localStorage.getItem('Img_ea4_p10res15');
+            }
+            ea4_p10res15.src = dataImage;
+            var previewZone = document.getElementById('ea4_p10res15-zone');
+            previewZone.appendChild(ea4_p10res15);
+        </script>
+
+        <div id="divFileUpload" style="position: absolute; top: 497px; left: 61px">
+            <input class="btn btn-primary" id="file-upload" type="file" accept="image/*" />
+        </div>
        
         <!--Fin del contenido-->
            <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
@@ -76,6 +96,32 @@
             
     </div>       
 </body>
+<script>
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+     
+            reader.onload = function (e) {
+                var ea4_p10res15 = document.getElementById('ea4_p10res15');
+                //e.target.result contents the base64 data from the image uploaded
+                ea4_p10res15.src = e.target.result;
+                console.log(e.target.result);
+     
+                var previewZone = document.getElementById('ea4_p10res15-zone');
+                previewZone.appendChild(ea4_p10res15);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+     
+    var fileUpload = document.getElementById('file-upload');
+    fileUpload.onchange = function (e) {
+        //document.getElementById('file-preview-zone').innerHTML = "";
+        readFile(e.srcElement);
+    }
+     
+</script>
 <script type="text/javascript">
 	//Carga datos del registro
     document.getElementById('ea4_regNA').value = localStorage.getItem('ea4_regNA');
@@ -101,6 +147,10 @@
     
 
     function save_data(){
+		//local storage
+        bannerImage = document.getElementById('ea4_p10res15').src;
+        localStorage.setItem("Img_ea4_p10res15", bannerImage);
+		
         var ea4_p10res1 = document.getElementById('ea4_p10res1').value;
         localStorage.setItem('ea4_p10res1', ea4_p10res1);
         var ea4_p10res2 = document.getElementById('ea4_p10res2').value;
